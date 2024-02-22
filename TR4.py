@@ -1,14 +1,15 @@
-Meses = input("Digite um Mes:")
+Mes = input("Digite um Mes:")
+print ("A estacao desse mes é:")
 
-if Mes < "dezembro", "janeiro", "fevereiro":
-    estação = "Verão"
-elif Mes < "Março", "abril", "junho":
-    estação = "Outono"
-elif Mes < "junho", "julho", "agosto":
-    estação = "Inverno"
-elif Mes < "setembro", "outubro", "novembro":
-    estação = "Primavera"
+if Mes in ("dezembro", "janeiro", "fevereiro"):
+    print ("verao")
+elif Mes in ("Março", "abril", "junho"):
+    print ("inverno")
+elif Mes in ("junho", "julho", "agosto"):
+    print ("outono")
+elif Mes in ("setembro", "outubro", "novembro"):
+    print ("primavera")
 else:
     categoria = "Meses"
 
-print(f"Você está na estação: {estação}.")
+
