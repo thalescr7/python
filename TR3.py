@@ -28,25 +28,4 @@
 #print (f"(O numero {n1} mais o numero {n2} é igual a: {soma}.")
 
 
-#solicitar notas
-def nota_aluno(notas):
-    if notas >= 100:
-        return "A"
-    elif notas >= 80:
-        return "B"
-    elif notas >= 60:
-        return "C"
-    elif notas >= 40:
-        return "D"
-    else:
-        return "F"
-
-
-nota_aluno = float(input("Digite a sua nota: "))
-
-
-letra_nota = calcular_letra_nota(nota_aluno)
-
-
-print(f"A nota {nota_aluno:.2f} corresponde à letra {letra_nota}.")
     # TODO: write code...
