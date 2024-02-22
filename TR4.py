@@ -1,13 +1,12 @@
+Meses = input("Digite um Mes:")
 
-Meses = input("Digite um mes: ")
-
-if Meses < "dezembro", "janeiro", "fevereiro":
+if Mes < "dezembro", "janeiro", "fevereiro":
     estação = "Verão"
-elif Meses < "Março a junho":
+elif Mes < "Março", "abril", "junho":
     estação = "Outono"
-elif Meses < "junho a setembro":
+elif Mes < "junho", "julho", "agosto":
     estação = "Inverno"
-elif Meses < "setembro a dezembro":
+elif Mes < "setembro", "outubro", "novembro":
     estação = "Primavera"
 else:
     categoria = "Meses"
