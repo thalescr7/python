@@ -1,8 +1,9 @@
-
 import random
 
 def jogar_jokenpo():
     opcoes = ["pedra", "papel", "tesoura"]
+    vitorias = 0
+    
     print("Vamos jogar jokenpo?")
     print("Escolha: pedra, papel ou tesoura")
 
