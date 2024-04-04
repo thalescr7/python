@@ -1,41 +1,77 @@
+import os
 
-def inserir_item(lista):
-    novo_item = input("Digite o novo item: ")
-    lista.append(novo_item)
-    print("Parabens!, o seu item foi incluido com sucesso!")
-
-def excluir_item(lista):
-    item_a_excluir = input("Digite o item para excluir: ")
-    if item_a_excluir in lista:
-        lista.remove(item_a_excluir)
-        print("Item excluído com sucesso!")
-    else:
-        print("O item não está mais na lista.")
-
-def mostrar_lista(lista):
+def mostrarLista(lista):
     print("Lista atual:", lista)
 
-def main():
-    lista = []
-    menu = {
-        '1': inserir_item,
-        '2': excluir_item,
-        '3': mostrar_lista,
-        '4': lambda _: print("Programa encerrado.") 
-    }
-    
+def addItemLista(lista):
+    novo_item = input("Digite um novo item para adicionar na lista: ")
+    lista.append(novo_item)
+
+def excluirItemLista(lista):
+    itemExcluir = input("Digite o item a ser excluído da lista: ")
+    if itemExcluir in lista:
+        lista.remove(itemExcluir)
+    else:
+        print("O item não está na lista.")
+
+def mostrarListaAtual(lista):
+    mostrarLista(lista)
+
+def gravarLista(lista):
+    arquivo = input("Digite o nome do arquivo a ser gravado: ")
+    try:
+        with open(arquivo, 'w') as f:
+            f.write(str(lista))
+        print("Lista gravada com sucesso no arquivo", arquivo)
+    except Exception as e:
+        print("Erro ao gravar o arquivo:", e)
+
+def lerArquivoLista():
+    arquivos = os.listdir()
+    print("Lista de Arquivos disponíveis:")
+    for arquivo in arquivos:
+        print(arquivo)
+    arquivoEscolhido = input("Digite o nome do arquivo para ler: ")
+    try:
+        with open(arquivoEscolhido, 'r') as f:
+            lista = eval(f.read())
+            mostrarLista(lista)
+            return lista
+    except Exception as e:
+        print("Erro ao ler o arquivo:", e)
+
+def sair():
+    print("Saindo do programa...")
+    exit()
+
+def escolherOpcao(lista):
     while True:
-        print("\n1. Inserir novo item na lista")
-        print("2. Excluir item da lista")
-        print("3. Mostrar lista atual")
-        print("4. Sair")
-        
-        escolha = input("\nEscolha alguma opção: ")
-        
-        if escolha in menu:
-            menu[escolha](lista)
+        print(" Escolha uma opção:")
+        print("1 - Adicionar item na lista")
+        print("2 - Excluir um item da lista")
+        print("3 - Mostrar lista")
+        print("4 - Gravar lista")
+        print("5 - Ler um arquivo de lista epecifico")
+        print("6 - Sair")
+
+        opc = input("Digite a opção desejada: ")
+
+        if opc == '1':
+            addItemLista(lista)
+        elif opc == '2':
+            excluirItemLista(lista)
+        elif opc == '3':
+            mostrarListaAtual(lista)
+        elif opc == '4':
+            gravarLista(lista)
+        elif opc == '5':
+            lista = lerArquivoLista()
+        elif opc == '6':
+            sair()
+            break
         else:
-            print("Opção inválida. Por favor, escolha uma opção válida.")
+            print("Opção inválida.")
 
 if __name__ == "__main__":
-    main()
+    lista = []
+    escolherOpcao(lista)
