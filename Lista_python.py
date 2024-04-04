@@ -8,7 +8,7 @@ def addItemLista(lista):
     lista.append(novo_item)
 
 def excluirItemLista(lista):
-    itemExcluir = input("Digite o item a ser excluído da lista: ")
+    itemExcluir = input("Digite o item para ser excluído da lista: ")
     if itemExcluir in lista:
         lista.remove(itemExcluir)
     else:
@@ -18,7 +18,8 @@ def mostrarListaAtual(lista):
     mostrarLista(lista)
 
 def gravarLista(lista):
-    arquivo = input("Digite o nome do arquivo a ser gravado: ")
+    arquivo = input("Digite o nome do arquivo que sera gravado: ")
+    arquivo += ".txt"
     try:
         with open(arquivo, 'w') as f:
             f.write(str(lista))
@@ -26,11 +27,12 @@ def gravarLista(lista):
     except Exception as e:
         print("Erro ao gravar o arquivo:", e)
 
-def lerArquivoLista():
+def lerArquivoLista(extensao = ".txt"):
     arquivos = os.listdir()
-    print("Lista de Arquivos disponíveis:")
-    for arquivo in arquivos:
-        print(arquivo)
+    print(f"arquivos .{extensao}Lista de Arquivos disponíveis:")
+    for lista_arquivo in arquivos:
+        if lista_arquivo.endswith(extensao):
+         print(lista_arquivo)
     arquivoEscolhido = input("Digite o nome do arquivo para ler: ")
     try:
         with open(arquivoEscolhido, 'r') as f:
@@ -39,6 +41,8 @@ def lerArquivoLista():
             return lista
     except Exception as e:
         print("Erro ao ler o arquivo:", e)
+
+
 
 def sair():
     print("Saindo do programa...")
